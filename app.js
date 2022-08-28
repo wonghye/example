@@ -4,16 +4,17 @@ const loginInput = document.querySelector("#login input");
 //const link = document.querySelector("a");
 const greeting = document.querySelector("#greeting");
 const HIDDEN_CLASSNAME = "hidden";
+const USER_NAME = "usern";
 
 function onLoginSubmit(event) {
     event.preventDefault();
     loginForm.classList.add(HIDDEN_CLASSNAME);
     const usern = loginInput.value;
-    console.log(usern);
+    localStorage.setItem(USER_NAME, usern);
+    //console.log(usern);
     //greeting.innerText = "Hello " + usern;
     // `${변수명}`
-    greeting.innerHTML = `Hello ${usern}`; // string 변수를 하나로 합쳐줌
-    greeting.classList.remove(HIDDEN_CLASSNAME);
+    paintGreet(usern);
     
     /*
     if (usern === "") {
@@ -24,14 +25,14 @@ function onLoginSubmit(event) {
     */
 }
 
-/*
-function hdLinkClick(event){
-    event.preventDefault();
-    console.log(event);
-    alert("clicked!!");
+function paintGreet(usern){
+    greeting.innerText = `Hello ${usern}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
 }
-*/
-
-//loginButton.addEventListener("click", onLoginBC);
-loginForm.addEventListener("submit", onLoginSubmit);
-link.addEventListener("click", hdLinkClick);
+const saveName = localStorage.getItem(USER_NAME);
+    if(saveName == null){
+        loginForm.classList.remove(HIDDEN_CLASSNAME);
+        loginForm.addEventListener("submit", onLoginSubmit);
+    }else{
+        paintGreet();
+    }
