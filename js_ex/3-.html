@@ -1,0 +1,46 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if문</title>
+    <script>
+        /*
+        var age = prompt('나이 입력 :' ,'') 
+        var admissionFee = '';
+        
+        if(age < 13 || age >= 65){
+            admissionFee = '2000원';
+        }else if(age >= 13 && age < 20){
+            admissionFee = '4000원';
+        }else{
+            admissionFee = '6000원';
+        }
+        document.write(admissionFee);
+        */
+
+        var html = Number(prompt('html 점수 입력', ''));
+        var css = Number(prompt('css 점수 입력', ''));
+        var js = Number(prompt('js 점수 입력', ''));
+        var avg = (html + css + js) / 3;
+        var comment;
+
+        if(avg >= 60){
+            if(html < 40){
+                comment = 'html' + '40점 미만 불합격';
+            }else if(css < 40){
+                comment = 'css' + '40점 미만 불합격';
+            }else if(js < 40){
+                comment = 'js' + '40점 미만 불합격';
+            }else{
+                comment = '평균' + avg +'점 합격';
+            }
+        }else{
+            comment = '평균' + avg +'점 불합격';
+        }
+        document.write(comment);
+    </script>
+</head>
+<body>
+</body>
+</html>
